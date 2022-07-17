@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/fruitsDB", {
     useUnifiedTopology: true, });
 
-// SCHEMA
+// FRUIT SCHEMA
     const fruitSchema = new mongoose.Schema ({
         // Required Name
        name : { 
@@ -24,30 +24,84 @@ mongoose.connect("mongodb://localhost:27017/fruitsDB", {
     const Fruit = mongoose.model("Fruit", fruitSchema);
 
 // FRUIT
-    const fruit = new Fruit({
-        name: "Peach",
-        rating: 10,
-        review: "Peaches are so Yummy!",
-    });
+    // const fruit = new Fruit({
+    //     name: "Peach",
+    //     rating: 10,
+    //     review: "Peaches are so Yummy!",
+    // });
 
 
 // FRUIT SAVE
     // fruit.save();
+
+
     
-// PEOPLE
+// PEOPLE SCHEMA
     const peopleSchema = new mongoose.Schema({
         name: String,
         age: Number,
+        favoriteFruit: fruitSchema
     });
     
     const Person = mongoose.model("Person", peopleSchema);
 
-    const person = new Person({
-        name: "John",
-        age: 37,
-    });
+    // ADD FRUIT
+        // const pineapple = new Fruit({
+        //     name: "Pineapple",
+        //     score: 9,
+        //     review: "Great Fruit."
+        // });
 
-    // person.save();
+        // pineapple.save();
+
+        const  mango = new Fruit({
+            name: "Mango", 
+            score: 10,
+            review: "Super Delicious Mango!"
+        });
+
+        mango.save();
+
+
+        // UPDATE ONE = PERSON
+        Person.updateOne({name: "John"}, {favoriteFruit: mango}, function(err) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Successfully updated the document.")
+                }
+            })
+
+
+       
+
+
+        // Fruit.updateOne({_id:"62d36db40688b90c7e0f5574"}, {name: "Peach"}, function(err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Successfully updated the document.")
+//     }
+// });
+
+
+
+    // const person = new Person({
+    //     name: "Amy",
+    //     age: 12, 
+    //     favoriteFruit: pineapple
+    // });
+
+
+    // const person = new Person({
+    //     name: "John",
+    //     age: 37,
+    // });
+
+
+
+
+
 
 // INSERT MANY 
     // const kiwi = new Fruit({
