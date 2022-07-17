@@ -1,0 +1,1 @@
+Hello Github! This is a repository of MongoDB with Mongoose 🍃 guided by Angela Yu's Web Development BootCamp Course. A lesson repository uploaded at Github for documentation and future purposes. 
