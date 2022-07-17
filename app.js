@@ -41,6 +41,7 @@ mongoose.connect("mongodb://localhost:27017/fruitsDB", {
     });
     
     const Person = mongoose.model("Person", peopleSchema);
+
     const person = new Person({
         name: "John",
         age: 37,
@@ -155,20 +156,25 @@ const findDocuments = function (db, callback) {
 
 
 // DELETE ONE
-Fruit.deleteOne({_id:"62d36db40688b90c7e0f5574"}, {name: "Peach"}, function(err) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Successfully deleted the document.")
-    }
-});
+// Fruit.deleteOne({_id:"62d36db40688b90c7e0f5574"}, {name: "Peach"}, function(err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Successfully deleted the document.")
+//     }
+// });
 
 
 
+// DELETE MANY
+// Person.deleteMany({ name: "John"}, function(err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Successfully deleted the documents.")
+//     }
+//     });
 
 
-
-
-
-
+  
 // err = ERROR
