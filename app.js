@@ -25,16 +25,16 @@ mongoose.connect("mongodb://localhost:27017/fruitsDB", {
 
 // FRUIT
     const fruit = new Fruit({
-        name: "Peaches",
+        name: "Peach",
         rating: 10,
         review: "Peaches are so Yummy!",
     });
 
+
+// FRUIT SAVE
+    // fruit.save();
     
-    // FRUIT SAVE
-    fruit.save();
-    
-    // PEOPLE
+// PEOPLE
     const peopleSchema = new mongoose.Schema({
         name: String,
         age: Number,
@@ -48,7 +48,7 @@ mongoose.connect("mongodb://localhost:27017/fruitsDB", {
 
     // person.save();
 
-
+// INSERT MANY 
     // const kiwi = new Fruit({
     //     name: "Kiwi",
     //     rating: 10,
@@ -141,3 +141,34 @@ const findDocuments = function (db, callback) {
         callback(fruits);
     });
 };
+
+
+// UPDATE ONE
+// Fruit.updateOne({_id:"62d36db40688b90c7e0f5574"}, {name: "Peach"}, function(err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Successfully updated the document.")
+//     }
+// });
+
+
+
+// DELETE ONE
+Fruit.deleteOne({_id:"62d36db40688b90c7e0f5574"}, {name: "Peach"}, function(err) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("Successfully deleted the document.")
+    }
+});
+
+
+
+
+
+
+
+
+
+// err = ERROR
